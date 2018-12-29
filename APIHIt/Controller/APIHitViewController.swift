@@ -103,8 +103,9 @@ extension APIHitViewController:UITableViewDelegate,UITableViewDataSource,UIScrol
         return cell
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height){
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == apiDataArray.count - 1 && apiDataArray.count > 0 {
             self.refreshData()
         }
     }
